@@ -202,16 +202,12 @@ export default {
     margin:auto;
   }
 }
-
 #footer-layout {
   width: 100%;
 }
-
 #subtitle {
   font-weight: 200!important;
 }
-
-
 #footer {
   overflow: auto;
 }
