@@ -8,7 +8,7 @@
         <v-toolbar-items class="hidden-sm-and-down">
             <v-btn flat>Link One</v-btn>
             <v-btn flat>Link Two</v-btn>
-            <v-btn flat>Link Three</v-btn>
+            <v-btn flat @click="dialog=true">Login</v-btn>
         </v-toolbar-items>
     </v-toolbar>
     <main>
@@ -160,25 +160,33 @@
       </footer>
     </main>
   </v-app>
+  <!--login dialog component-->
+  <login-dialog :dialog.sync="dialog"></login-dialog>
 </div>
 </template>
 <script>
+import LoginDialog from '@/components/LoginDialog'
+
 export default {
      data () {
          return {
              topvar: true,
-             toolbarcolor: 'transparent'
+             toolbarcolor: 'transparent',
+             dialog: false
          }
      },
      methods: {        
         handleScroll (event) {        
             console.log(window.scrollY)
             if (window.scrollY >= 200)
-                this.toolbarcolor = 'teal lighten-2 white--text'
+                this.toolbarcolor = 'teal lighten-1'
             else
                 this.toolbarcolor = 'transparent'
         }
      },
+    components: {
+      'login-dialog': LoginDialog
+    },
     created () {
         window.addEventListener('scroll', this.handleScroll);
     },

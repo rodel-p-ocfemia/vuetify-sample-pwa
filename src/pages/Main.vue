@@ -17,7 +17,7 @@
             </v-list-tile-avatar>
 
             <v-list-tile-content>
-              <v-list-tile-title>Frame Dream</v-list-tile-title>
+              <v-list-tile-title></v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -53,7 +53,7 @@
         </v-btn>
         <v-list>
           <v-list-tile v-for="(item, index) in coloritems" :key="index" @click="_changecolor(item)">
-            <v-list-tile-title><p color="green">{{ item.title }}</p></v-list-tile-title>
+            <v-list-tile-title><div :class="item.colorname"><v-badge></v-badge></div></v-list-tile-title>
           </v-list-tile>
         </v-list>
       </v-menu>
@@ -92,11 +92,13 @@ export default {
       items: [{ icon: 'bubble_chart', title: 'Inspire', path: '/'},
               { title: 'Home', icon: 'dashboard', path: '/sample1'},
               { title: 'About', icon: 'question_answer', path: '/sample2' },
-              { title: 'Logout', icon: 'question_answer', path: '/landing' }
+              { title: 'Logout', icon: 'power_settings_new', path: '/login' }
               ],
-      coloritems: [{ title: 'Blue', color: colors.blue },
-                  { title: 'Green', color: colors.green },
-                  { title: 'Purple', color: colors.purple }],
+      coloritems: [{ title: 'Blue', color: colors.blue, colorname: 'blue' },
+                  { title: 'Green', color: colors.green, colorname: 'green' },
+                  { title: 'Purple', color: colors.purple, colorname: 'purple' },
+                  { title: 'Red', color: colors.red.darken1, colorname: 'red' },
+                  { title: 'Brown', color: colors.brown.darken1, colorname: 'brown' }],
       miniVariant: false,
       right: true,
       rightDrawer: false,
