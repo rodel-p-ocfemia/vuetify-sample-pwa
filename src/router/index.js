@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
 import Sample1 from '@/pages/Sample1'
 import Sample2 from '@/pages/Sample2'
+import SampleSearch from '@/pages/SampleSearch'
 import Login from '@/pages/Login'
 import Main from '@/pages/Main'
 
@@ -33,6 +34,11 @@ export default new Router({
           path: 'sample2',
           name: 'Sample1 2',
           component: Sample2
+        },
+        {
+          path: 'samplesearch',
+          name: 'Sample Search',
+          component: SampleSearch
         }
       ]
     }   

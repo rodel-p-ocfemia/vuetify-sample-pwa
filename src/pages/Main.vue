@@ -92,6 +92,7 @@ export default {
       items: [{ icon: 'bubble_chart', title: 'Inspire', path: '/'},
               { title: 'Home', icon: 'dashboard', path: '/sample1'},
               { title: 'About', icon: 'question_answer', path: '/sample2' },
+              { title: 'Sample Search', icon: 'search', path: '/samplesearch' },
               { title: 'Logout', icon: 'power_settings_new', path: '/login' }
               ],
       coloritems: [{ title: 'Blue', color: colors.blue, colorname: 'blue' },

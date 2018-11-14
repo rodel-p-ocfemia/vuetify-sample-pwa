@@ -63,6 +63,15 @@
         </template>
     </upload-btn>
     </p>
+    <v-flex xs12 sm6 d-flex>
+        <v-select
+          :items="export_data.pokemons"
+          box
+          label="Box style"
+           item-text="name" item-value="name"
+        ></v-select>
+      </v-flex>
+
   </div>
 </template>
 <script>
