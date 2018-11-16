@@ -1,47 +1,51 @@
 <template>
     <div>
         <v-dialog v-model="dialog" persistent max-width="400">
+            <form @submit.prevent="login">
             <v-card>
                 <v-card-title class="headline grey lighten-2" primary-title>
                     Login
                 </v-card-title>
                 <v-card-text>
-                    <v-layout row wrap>
-                        
-                            <v-text-field v-model="email" label="Email" :rules="[rules.required, rules.email]"></v-text-field>
-                        
-                            <v-text-field
-                                v-model="password"
-                                :append-icon="show1 ? 'visibility_off' : 'visibility'"
-                                :rules="[rules.required, rules.min]"
-                                :type="show1 ? 'text' : 'password'"
-                                name="input-10-1"
-                                label="Password"
-                                hint="At least 8 characters"
-                                counter
-                                @click:append="show1 = !show1"
-                            ></v-text-field>
-                       
+                    <p v-if="error" class="error">Bad login information</p>
+                    <v-layout row wrap>                      
+                      <v-text-field v-model="email" label="Email" :rules="[rules.required, rules.email]"></v-text-field>
+                      <v-text-field
+                          v-model="pass"
+                          :append-icon="show1 ? 'visibility_off' : 'visibility'"
+                          :rules="[rules.required, rules.min]"
+                          :type="show1 ? 'text' : 'password'"
+                          name="input-10-1"
+                          label="Password"
+                          hint="At least 8 characters"
+                          counter
+                          @click:append="show1 = !show1"
+                      ></v-text-field>
                     </v-layout>                    
                 </v-card-text>
                 <v-divider></v-divider>
                 <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" flat @click.native="close">Cancel</v-btn>
-                <v-btn color="primary" flat @click.native="close" to="/">Login</v-btn>
+                <v-btn color="primary" @click.native="close">Cancel</v-btn>
+                <v-btn color="primary" type="submit" :loading="loading" >Login</v-btn>
                 </v-card-actions>
             </v-card>
+            </form>
         </v-dialog>
     </div>
 </template>
 <script>
+import auth from '../auth'
   export default {
     name: 'login-dialog',
     data () {
       return {
+        loading: false,
+        email: '',        
+        pass: '',
+        error: false,
         show1: false,
-        title: 'Preliminary report',
-        email: '',
+        title: 'Preliminary report',        
         rules: {
           required: value => !!value || 'Required.',
           min: v => v.length >= 8 || 'Min 8 characters',
@@ -60,8 +64,22 @@
     },
     methods: {
         close() {
-        this.$emit('update:dialog', false)
-      }
+          this.$emit('update:dialog', false)
+        },
+        login () {
+          this.loading = true
+          auth.login(this.email, this.pass, loggedIn => {
+            console.log('login')
+            if (!loggedIn) {
+              this.error = true
+              this.loading = false
+            } else {
+              this.$router.replace(this.$route.query.redirect || '/')  
+              this.loading = false
+              //this.$store.commit('changeName', auth.getName())                      
+            }
+          })        
+        }
     }
   }
 </script>

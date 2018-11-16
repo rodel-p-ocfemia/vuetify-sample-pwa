@@ -17,7 +17,7 @@
             </v-list-tile-avatar>
 
             <v-list-tile-content>
-              <v-list-tile-title></v-list-tile-title>
+              <v-list-tile-title><p v-if="loggedIn">Welcome! {{ this.name }}</p>  </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -59,7 +59,10 @@
       </v-menu>
       <v-btn icon>
         <v-switch v-model="darkTheme"></v-switch>
-      </v-btn>
+      </v-btn>         
+      <v-btn icon v-if="loggedIn" to="/logout">
+          <v-icon>power_settings_new</v-icon>
+      </v-btn>      
     </v-toolbar>
     <v-content>
       <v-container fluid>
@@ -83,17 +86,21 @@
 </template>
 <script>
 import colors from 'vuetify/es5/util/colors'
+import auth from '../auth'
+
 export default {
+  name: 'App',
   data () {
     return {
+      loggedIn: auth.loggedIn(),
+      name: auth.getName(),
       clipped: false,
       drawer: true,
       fixed: false,
       items: [{ icon: 'bubble_chart', title: 'Inspire', path: '/'},
               { title: 'Home', icon: 'dashboard', path: '/sample1'},
               { title: 'About', icon: 'question_answer', path: '/sample2' },
-              { title: 'Sample Search', icon: 'search', path: '/samplesearch' },
-              { title: 'Logout', icon: 'power_settings_new', path: '/login' }
+              { title: 'Sample Search', icon: 'search', path: '/samplesearch' }
               ],
       coloritems: [{ title: 'Blue', color: colors.blue, colorname: 'blue' },
                   { title: 'Green', color: colors.green, colorname: 'green' },
@@ -116,7 +123,14 @@ export default {
     _changecolor(selected) {
       this.$vuetify.theme.primary = selected.color;
     }
-  },
-  name: 'App'
+  },  
+  created () {
+    console.log('created')
+    console.log(auth.loggedIn())
+    auth.onChange = loggedIn => {
+      this.loggedIn = loggedIn
+    },
+    this.name = auth.getName()
+  }
 }
 </script>
