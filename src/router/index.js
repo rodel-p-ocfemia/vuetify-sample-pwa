@@ -4,6 +4,7 @@ import HelloWorld from '@/pages/HelloWorld'
 import Sample1 from '@/pages/Sample1'
 import Sample2 from '@/pages/Sample2'
 import SampleSearch from '@/pages/SampleSearch'
+import SampleGeoLocation from '@/pages/SampleGeoLocation'
 import Login from '@/pages/Login'
 import Main from '@/pages/Main'
 import auth from '../auth'
@@ -43,6 +44,12 @@ export default new Router({
           path: 'samplesearch',
           name: 'Sample Search',
           component: SampleSearch,
+          beforeEnter: requireAuth
+        },
+        {
+          path: 'samplegeolocation',
+          name: 'Sample Geo Location',
+          component: SampleGeoLocation,
           beforeEnter: requireAuth
         },
         {

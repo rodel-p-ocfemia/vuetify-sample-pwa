@@ -7,7 +7,9 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import XLSX from 'xlsx'
 import axios from 'axios'
+import VueGeolocation from 'vue-browser-geolocation';
 
+Vue.use(VueGeolocation)
 Vue.use(Vuetify)
 Vue.use(XLSX)
 Vue.use(axios)
