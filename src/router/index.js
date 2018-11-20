@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
+//import Dashboard from '@/pages/Dashboard'
+import Dashboard from '@/components/Clock2'
 import Sample1 from '@/pages/Sample1'
 import Sample2 from '@/pages/Sample2'
 import SampleSearch from '@/pages/SampleSearch'
@@ -24,9 +26,9 @@ export default new Router({
       children: [
         {
           path: '/',
-          name: 'HelloWorld 1',
-          component: HelloWorld,
-          beforeEnter: requireAuth
+          name: 'Dashboard',
+          component: Dashboard//,
+          //beforeEnter: requireAuth
         },
         {
           path: 'sample1',

@@ -1,5 +1,5 @@
 <template>
-  <v-app :dark="darkTheme" v-on:scroll="handleScroll">
+  <v-app :dark="darkTheme">
     <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
@@ -15,7 +15,6 @@
             <v-list-tile-avatar>
               <img src="../assets/logo.png">
             </v-list-tile-avatar>
-
             <v-list-tile-content>
               <v-list-tile-title><p v-if="loggedIn">Welcome! {{ this.name }}</p>  </v-list-tile-title>
             </v-list-tile-content>
@@ -41,10 +40,7 @@
       </v-btn>
       <v-btn icon @click.stop="clipped = !clipped">
         <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>remove</v-icon>
-      </v-btn>
+      </v-btn>      
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu offset-y>       
@@ -97,7 +93,7 @@ export default {
       clipped: false,
       drawer: true,
       fixed: false,
-      items: [{ icon: 'bubble_chart', title: 'Inspire', path: '/'},
+      items: [{ icon: 'bubble_chart', title: 'My Dashboard', path: '/'},
               { title: 'Home', icon: 'dashboard', path: '/sample1'},
               { title: 'About', icon: 'question_answer', path: '/sample2' },
               { title: 'Sample Search', icon: 'search', path: '/samplesearch' },
