@@ -61,7 +61,7 @@
       </v-btn>      
     </v-toolbar>
     <v-content>
-      <v-container fluid>
+      <v-container fluid>        
         <router-view></router-view>
       </v-container>
     </v-content>
