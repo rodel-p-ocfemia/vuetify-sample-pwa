@@ -1,21 +1,46 @@
 <template>
+  <v-container fluid grid-list-lg>
     <v-layout row wrap>
-        <v-flex xs6>
-            <v-date-picker v-model="picker" :landscape="landscape" :reactive="reactive" readonly></v-date-picker>
-        </v-flex>
-        <v-flex xs6>
-            asdf
-        </v-flex>
+      <v-flex xs12 sm12 md9>
+        <v-card>
+          <v-toolbar class="primary">
+            <v-toolbar-side-icon></v-toolbar-side-icon>
+          </v-toolbar>
+          <v-card-text style="height: 300px;"></v-card-text>
+          <v-card-text style="height: 100px; position: relative">
+            <v-btn
+              absolute
+              dark
+              fab
+              top
+              right
+              color="pink"
+            >
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-card-text>
+        </v-card>
+      </v-flex>      
+      <v-flex xs12 sm12 md3>
+        <v-card>
+          <v-toolbar extended class="primary">
+            <v-toolbar-side-icon></v-toolbar-side-icon>
+            <v-btn
+              color="pink"
+              dark
+              small
+              absolute
+              bottom
+              left
+              fab
+            >
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <v-card-text style="height: 236px;"></v-card-text>
+          <v-card-text style="height: 100px; position: relative"></v-card-text>
+        </v-card>
+      </v-flex>
     </v-layout>
+  </v-container>
 </template>
-<script>
-  export default {
-    data () {
-      return {
-        picker: new Date().toISOString().substr(0, 10),
-        landscape: true,
-        reactive: false
-      }
-    }
-  }
-</script>
