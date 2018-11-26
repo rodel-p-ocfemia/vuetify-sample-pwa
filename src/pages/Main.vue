@@ -13,7 +13,7 @@
         <v-list class="pa-0">
           <v-list-tile avatar>
             <v-list-tile-avatar>
-              <img src="../assets/logo.png">
+              <img src="../assets/Ninja-icon.png">
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title><p v-if="loggedIn">Welcome! {{ this.name }}</p>  </v-list-tile-title>
@@ -33,7 +33,8 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app :clipped-left="clipped" color="primary">
+    <!--<v-toolbar app :clipped-left="clipped" color="primary" dark :class="toolbarcolor">-->
+    <v-toolbar app :clipped-left="clipped">
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
@@ -41,7 +42,8 @@
       <v-btn icon @click.stop="clipped = !clipped">
         <v-icon>web</v-icon>
       </v-btn>      
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
+      <v-toolbar-title v-text="title" style="font-weight:bold;font-family:'Allura';font-size: 25px;"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu offset-y>       
         <v-btn slot="activator" flat icon>
@@ -76,7 +78,11 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
+      <span style="font-weight:bold;font-size:12px;">davzOps &copy; 2017 | 
+        About | 
+        Developers | 
+        Contact Us
+      </span>
     </v-footer>
   </v-app>
 </template>
@@ -90,13 +96,13 @@ export default {
     return {
       loggedIn: auth.loggedIn(),
       name: auth.getName(),
-      clipped: false,
+      clipped: true,
       drawer: true,
       fixed: false,
-      items: [{ icon: 'bubble_chart', title: 'My Dashboard', path: '/'},
-              { title: 'Home', icon: 'dashboard', path: '/sample1'},
-              { title: 'About', icon: 'question_answer', path: '/sample2' },
-              { title: 'Sample Search', icon: 'search', path: '/samplesearch' },
+      items: [{ title: 'My Dashboard', icon: 'dashboard', path: '/'},
+              { title: 'My Attendance', icon: 'access_time', path: '/sample1'},
+              { title: 'My Payslip - PRO', icon: 'attach_money', path: '/sample2' },
+              { title: 'Compensation and Benefits-PRO', icon: 'bubble_chart', path: '/samplesearch' },
               { title: 'Sample Geo Location', icon: 'place', path: '/samplegeolocation' }
               ],
       coloritems: [{ title: 'Blue', color: colors.blue, colorname: 'blue' },
@@ -107,8 +113,8 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js',
-      darkTheme: true
+      title: 'Company ABC',
+      darkTheme: false
     }
   },
   methods: {
