@@ -3,16 +3,23 @@
     <v-layout row wrap>
       <v-flex xs12 sm12 md9>
         <v-card>
-          <v-toolbar class="primary" dark>
-             <v-btn icon>
-              <v-icon>event</v-icon>
-            </v-btn>
-            <v-toolbar-title>Events</v-toolbar-title>              
-            <v-spacer></v-spacer>  
-            <v-btn icon>
-              <v-icon>more_vert</v-icon>
-            </v-btn>      
-          </v-toolbar>
+           <v-toolbar
+              dark
+              color="primary"
+            >
+              <v-toolbar-title></v-toolbar-title>
+              <v-text-field
+                class="mx-3"
+                flat
+                hide-no-data
+                hide-details
+                label="What's up"
+                solo-inverted
+              ></v-text-field>
+              <v-btn icon>
+                <v-icon>send</v-icon>
+              </v-btn>
+            </v-toolbar>
           <v-list three-line>
               <template v-for="(item, index) in items_updates">
                 <v-subheader
@@ -43,59 +50,7 @@
                   </v-list-tile-content>
                 </v-list-tile>
               </template>
-            </v-list>     
-            <v-list three-line>
-              <template v-for="(item, index) in items_updates_upcoming">
-                <v-subheader
-                  v-if="item.header"
-                  :key="item.header"
-                >
-                  {{ item.header }}
-                </v-subheader>
-
-                <v-divider
-                  v-else-if="item.divider"
-                  :inset="item.inset"
-                  :key="index"
-                ></v-divider>
-
-                <v-list-tile
-                  v-else
-                  :key="item.title"
-                  avatar
-                  
-                >
-                  <v-list-tile-avatar>
-                    <img :src="item.avatar">
-                  </v-list-tile-avatar>
-
-                  <v-list-tile-content>
-                    <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                    <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-              </template>
-            </v-list>     
-          <v-card-text style="height: 100px; position: relative">
-            <v-text-field
-                v-model="input"
-                hide-details
-                flat
-                label="Leave a comment..."
-                solo
-                @keydown.enter="comment"
-              >
-                <template slot="append">
-                  <v-btn
-                    class="orange"
-                    depressed
-                    @click="comment"
-                  >
-                    Post
-                  </v-btn>
-                </template>
-              </v-text-field>
-          </v-card-text>
+            </v-list>
         </v-card>
       </v-flex>      
       <v-flex xs12 sm12 md3>
@@ -131,10 +86,7 @@
               <v-icon>group_work</v-icon>
             </v-btn>
             <v-toolbar-title>My Team</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-              <v-icon>search</v-icon>
-            </v-btn>
+            <v-spacer></v-spacer>           
             <v-btn icon>
               <v-icon>more_vert</v-icon>
             </v-btn>
@@ -193,10 +145,7 @@ import ApiService from '@/services/services.js'
             title: 'For Approval',
             subtitle: "Timesheet for approval"
           },
-          { divider: true, inset: true }
-        ],
-        items_updates_upcoming: [
-          { header: 'Upcoming' },          
+          { divider: true, inset: true },
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
             title: 'Reminder',
@@ -208,7 +157,7 @@ import ApiService from '@/services/services.js'
             title: 'Reminder',
             subtitle: "Timesheet submission due on Friday"
           },
-          { divider: true, inset: true }
+          { divider: true, inset: true }       
         ]
       }
     },
