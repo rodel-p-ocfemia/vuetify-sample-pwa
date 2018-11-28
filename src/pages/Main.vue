@@ -1,6 +1,6 @@
 <template>
   <v-app :dark="darkTheme">
-    <v-navigation-drawer persistent :mini-variant="miniVariant" :clipped="clipped" v-model="drawer"
+    <v-navigation-drawer transparent persistent :mini-variant="miniVariant" :clipped="clipped" v-model="drawer"
       enable-resize-watcher fixed app>
       <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
       <v-img :aspect-ratio="16/9" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
@@ -104,7 +104,7 @@ export default {
       drawer: true,
       fixed: false,
       items: [{ title: 'My Dashboard', icon: 'dashboard', path: '/'},
-              { title: 'My Attendance', icon: 'access_time', path: '/sample1'},
+              { title: 'My Attendance', icon: 'access_time', path: '/attendance'},
               { title: 'My Payslip - PRO', icon: 'attach_money', path: '/sample2' },
               { title: 'Compensation and Benefits-PRO', icon: 'bubble_chart', path: '/samplesearch' },
               { title: 'Sample Geo Location', icon: 'place', path: '/samplegeolocation' }

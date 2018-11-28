@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
 import Dashboard from '@/pages/Dashboard'
+import Attendance from '@/pages/Attendance'
 //import Dashboard from '@/components/Clock2'
 //import Dashboard from '@/components/Clock3'
 import Sample1 from '@/pages/Sample1'
@@ -32,9 +33,9 @@ export default new Router({
           beforeEnter: requireAuth
         },
         {
-          path: 'sample1',
-          name: 'Sample1 1',
-          component: Sample1,
+          path: 'attendance',
+          name: 'Attendance',
+          component: Attendance,
           beforeEnter: requireAuth
         },
         {
