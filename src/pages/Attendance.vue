@@ -1,15 +1,8 @@
 <template>
 <v-container fluid grid-list-lg>
   <v-layout row wrap>
-    <v-flex xs12 sm12 md3>
-        <v-date-picker landscape class="primary"
-            v-model="date"
-            :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
-            :events="functionEvents"
-        ></v-date-picker>
-    </v-flex>
-    <v-flex xs12 sm12 md9>
-        <v-card class="mx-auto" max-width="650">
+    <v-flex xs12 sm12 md12>
+        <v-card class="mx-auto" max-width="100%">
           <v-card dark flat>
             <v-btn absolute bottom color="pink" right fab>
               <v-icon>mdi-plus</v-icon>
@@ -19,9 +12,16 @@
                 <v-icon>mdi-menu</v-icon>
               </v-btn>
               <h3 class="title font-weight-light text-xs-center grow">Timeline</h3>
-              <v-avatar>
-                <v-img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"></v-img>
-              </v-avatar>
+              <v-menu bottom left>
+                <v-btn slot="activator" dark icon>
+                  <v-icon>more_vert</v-icon>
+                </v-btn>
+                <v-list dense class="pt-0">
+                  <v-list-tile-content>
+                    <v-date-picker class="primary" v-model="date" landscape reactive></v-date-picker>
+                  </v-list-tile-content>
+                </v-list>
+              </v-menu>
             </v-card-title>
             <v-img style="height:220px;" src="https://cdn.vuetifyjs.com/images/cards/forest.jpg"
               gradient="to top, rgba(0,0,0,.44), rgba(0,0,0,.44)" >

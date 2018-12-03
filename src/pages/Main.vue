@@ -67,8 +67,66 @@
         </v-btn>      
     </v-toolbar>
     <v-content>
-      <v-container fluid>        
-        <router-view></router-view>
+      <v-container fluid>
+        <v-layout row wrap>          
+          <v-flex xs12 sm12 md9>
+              <router-view></router-view>
+          </v-flex>
+          <!--left nav-->
+          <v-flex xs12 sm12 md3>
+            <!--Clock-In-->
+            <v-card>
+              <v-img class="white--text" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+                <v-container fill-height fluid>
+                  <v-layout fill-height>
+                    <v-flex xs12 align-end flexbox>
+                      <span class="headline">Timezone: Manila</span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-img>
+              <v-card-title>
+                <div>
+                  <span>Date : {{ server_date }}</span><br>
+                  <span>Time : {{ server_time }}</span>
+                </div>
+              </v-card-title>
+              <v-card-actions>
+                <v-btn flat color="orange">Time-In</v-btn>
+              </v-card-actions>
+            </v-card><br>
+            <!--My Team-->
+            <v-card> 
+              <v-toolbar color="primary" dark>         
+                <v-btn icon>
+                  <v-icon>group_work</v-icon>
+                </v-btn>
+                <v-toolbar-title>My Team</v-toolbar-title>
+                <v-spacer></v-spacer>           
+                <v-btn icon>
+                  <v-icon>more_vert</v-icon>
+                </v-btn>
+              </v-toolbar>
+              <v-list>
+                <v-list-tile
+                  v-for="item in items"
+                  :key="item.title"
+                  avatar
+                >
+                  <v-list-tile-action>
+                    <v-icon v-if="item.icon" color="green">star</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                  </v-list-tile-content>
+                  <v-list-tile-avatar>
+                    <img :src="require('@/assets/Robot-icon.png')">
+                  </v-list-tile-avatar>
+                </v-list-tile>
+              </v-list>
+            </v-card>
+          </v-flex>
+        </v-layout> 
       </v-container>
     </v-content>
     <v-navigation-drawer temporary :right="right" v-model="rightDrawer" fixed app>
