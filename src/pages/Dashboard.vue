@@ -1,42 +1,35 @@
 <template>
-  <v-container fluid grid-list-lg>
-    <v-layout row wrap>
-      <!--Updates section-->
-      <v-flex xs12 sm12 md12>
-        <v-card>
-           <v-toolbar dark color="primary">
-              <v-toolbar-title></v-toolbar-title>
-              <v-text-field class="mx-3" flat hide-no-data hide-details label="What's up" solo-inverted>
-              </v-text-field>
-                <v-btn icon>
-                  <v-icon>send</v-icon>
-                </v-btn>
-            </v-toolbar>
-            <v-list three-line>
-                <template v-for="(item, index) in items_updates">
-                  <v-subheader v-if="item.header" :key="item.header">
-                    {{ item.header }}
-                  </v-subheader>
-                  <v-divider
-                    v-else-if="item.divider"
-                    :inset="item.inset"
-                    :key="index"
-                  ></v-divider>
-                  <v-list-tile v-else :key="item.title" avatar>
-                    <v-list-tile-avatar>
-                      <img :src="item.avatar">
-                    </v-list-tile-avatar>
-                    <v-list-tile-content>
-                      <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                      <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </template>
-              </v-list>
-        </v-card>
-      </v-flex>
-    </v-layout>   
-  </v-container>
+  <v-card>
+        <v-toolbar dark color="primary">
+          <v-toolbar-title></v-toolbar-title>
+          <v-text-field class="mx-3" flat hide-no-data hide-details label="What's up" solo-inverted>
+          </v-text-field>
+            <v-btn icon>
+              <v-icon>send</v-icon>
+            </v-btn>
+        </v-toolbar>
+        <v-list three-line>
+            <template v-for="(item, index) in items_updates">
+              <v-subheader v-if="item.header" :key="item.header">
+                {{ item.header }}
+              </v-subheader>
+              <v-divider
+                v-else-if="item.divider"
+                :inset="item.inset"
+                :key="index"
+              ></v-divider>
+              <v-list-tile v-else :key="item.title" avatar>
+                <v-list-tile-avatar>
+                  <img :src="item.avatar">
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                  <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </template>
+          </v-list>
+    </v-card>
 </template>
 <script>
 import ApiService from '@/services/services.js'
@@ -44,13 +37,7 @@ import ApiService from '@/services/services.js'
     data () {
       return {
         server_date: null,
-        server_time: null,
-        items: [
-          { icon: true, title: 'Jason Oner - Online', avatar: "@/assets/Ninja-icon.png" },
-          { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
-          { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
-          { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
-        ],
+        server_time: null,        
         items_updates: [
           { header: 'Today' },
           {

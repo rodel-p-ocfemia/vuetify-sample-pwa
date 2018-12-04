@@ -67,13 +67,13 @@
         </v-btn>      
     </v-toolbar>
     <v-content>
-      <v-container fluid>
+      <v-container fluid grid-list-md>
         <v-layout row wrap>          
-          <v-flex xs12 sm12 md9>
+          <v-flex xs12 sm6 md9>
               <router-view></router-view>
           </v-flex>
           <!--left nav-->
-          <v-flex xs12 sm12 md3>
+          <v-flex xs12 md3>
             <!--Clock-In-->
             <v-card>
               <v-img class="white--text" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
@@ -109,7 +109,7 @@
               </v-toolbar>
               <v-list>
                 <v-list-tile
-                  v-for="item in items"
+                  v-for="item in items_team"
                   :key="item.title"
                   avatar
                 >
@@ -161,6 +161,12 @@ export default {
       clipped: true,
       drawer: true,
       fixed: false,
+      items_team: [
+          { icon: true, title: 'Jason Oner - Online', avatar: "@/assets/Ninja-icon.png" },
+          { title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
+          { title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+          { title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' }
+        ],
       items: [{ title: 'My Dashboard', icon: 'dashboard', path: '/'},
               { title: 'My Attendance', icon: 'access_time', path: '/attendance'},
               { title: 'My Payslip - PRO', icon: 'attach_money', path: '/sample2' },
