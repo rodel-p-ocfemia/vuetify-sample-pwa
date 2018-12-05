@@ -9,7 +9,7 @@
                 <v-icon>mdi-menu</v-icon>
               </v-btn>
               <h3 class="title font-weight-light text-xs-center grow">Timeline</h3>
-              <v-menu bottom left>
+              <v-menu bottom left transition="slide-x-reverse-transition">
                 <v-btn slot="activator" dark icon>
                   <v-icon>more_vert</v-icon>
                 </v-btn>

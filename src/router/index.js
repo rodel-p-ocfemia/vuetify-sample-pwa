@@ -9,6 +9,7 @@ import Sample1 from '@/pages/Sample1'
 import Sample2 from '@/pages/Sample2'
 import SampleSearch from '@/pages/SampleSearch'
 import SampleGeoLocation from '@/pages/SampleGeoLocation'
+import MyProfile from '@/pages/MyProfile'
 import Login from '@/pages/Login'
 import Main from '@/pages/Main'
 import auth from '../auth'
@@ -54,6 +55,12 @@ export default new Router({
           path: 'samplegeolocation',
           name: 'Sample Geo Location',
           component: SampleGeoLocation,
+          beforeEnter: requireAuth
+        },
+        {
+          path: 'myprofile',
+          name: 'MyProfile',
+          component: MyProfile,
           beforeEnter: requireAuth
         },
         {

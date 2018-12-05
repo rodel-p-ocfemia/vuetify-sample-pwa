@@ -19,14 +19,59 @@
             <v-list-tile-avatar>
               <img src="../assets/Ninja-icon.png">
             </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title><p v-if="loggedIn">Welcome! {{ this.name }}</p>  </v-list-tile-title>
+            <v-list-tile-content> 
+              <div v-if="loggedIn">
+                Welcome! <b>{{ this.name }}</b>
+              </div>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
       </v-toolbar>
       <v-list>
         <v-divider></v-divider>
+        <v-list-tile to="/" ripple>
+          <v-list-tile-action>
+            <v-badge overlap color="orange">
+                <span slot="badge">2</span>
+                <v-icon>dashboard</v-icon>
+              </v-badge>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>My Dashboard</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile to="/myprofile" ripple>
+          <v-list-tile-action>
+            <v-badge overlap color="orange">
+                <v-icon slot="badge" dark small>notifications</v-icon>
+                <v-icon>account_box</v-icon>
+              </v-badge>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>My Profile</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile to="/attendance" ripple>
+          <v-list-tile-action>
+            <v-badge overlap color="orange">                
+                <v-icon>access_time</v-icon>
+              </v-badge>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>My Attendance</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile to="/samplesearch" ripple>
+          <v-list-tile-action>
+            <v-badge overlap color="orange">                
+                <v-icon>attach_money</v-icon>
+              </v-badge>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>My Payslip</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <!--
         <v-list-tile v-for="item in items" :key="item.title" @click="_selected(item)" :to="item.path">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -35,6 +80,7 @@
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        -->
       </v-list>
     </v-navigation-drawer>
     <!--<v-toolbar app :clipped-left="clipped" color="primary" dark :class="toolbarcolor">-->
@@ -69,8 +115,10 @@
     <v-content>
       <v-container fluid grid-list-md>
         <v-layout row wrap>          
-          <v-flex xs12 sm6 md9>
-              <router-view></router-view>
+          <v-flex xs12 sm6 md9 style="padding-right:17px;">
+              <v-scroll-y-transition mode="out-in">
+                <router-view></router-view>
+              </v-scroll-y-transition>
           </v-flex>
           <!--left nav-->
           <v-flex xs12 md3>
