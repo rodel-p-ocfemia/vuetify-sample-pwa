@@ -1,36 +1,41 @@
 <template>
 <v-card class="mx-auto" max-width="100%">
           <v-card dark flat>
-            <v-btn absolute bottom color="pink" right fab>
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-            <v-card-title class="pa-2 primary">
-              <v-btn icon>
-                <v-icon>mdi-menu</v-icon>
-              </v-btn>
-              <h3 class="title font-weight-light text-xs-center grow">Timeline</h3>
-              <v-menu bottom left transition="slide-x-reverse-transition">
-                <v-btn slot="activator" dark icon>
-                  <v-icon>more_vert</v-icon>
-                </v-btn>
-                <v-list dense class="pt-0">
-                  <v-list-tile-content>
-                    <v-date-picker class="primary" v-model="date" landscape reactive></v-date-picker>
-                  </v-list-tile-content>
-                </v-list>
-              </v-menu>
-            </v-card-title>
-            <v-img style="height:220px;" src="https://cdn.vuetifyjs.com/images/cards/forest.jpg"
+            <v-img style="height:250px;" src="https://cdn.vuetifyjs.com/images/cards/forest.jpg"
               gradient="to top, rgba(0,0,0,.44), rgba(0,0,0,.44)" >
-              <v-container fill-height="">
-                <v-layout align-center>
-                  <strong class="display-4 font-weight-regular mr-4">8</strong>
-                  <v-layout column justify-end>
-                    <div class="headline font-weight-light">Monday</div>
-                    <div class="text-uppercase font-weight-light">February 2015</div>
-                  </v-layout>
+                <v-layout column fill-height>
+                  <v-card-title>
+                    <v-btn dark icon>
+                      <v-icon>chevron_left</v-icon>
+                    </v-btn>
+                    <v-btn dark icon class="mr-3">
+                      <v-icon>chevron_right</v-icon>
+                    </v-btn>
+                    <v-spacer></v-spacer>
+                    <v-card-title class="white--text">
+                      <v-menu bottom left transition="slide-x-reverse-transition">
+                        <v-btn slot="activator" dark icon>
+                          <v-icon>more_vert</v-icon>
+                        </v-btn>
+                        <v-list dense class="pt-0">
+                          <v-list-tile-content>
+                            <v-date-picker class="primary" v-model="date" landscape reactive></v-date-picker>
+                          </v-list-tile-content>
+                        </v-list>
+                      </v-menu>
+                    </v-card-title>
+                  </v-card-title>
+                  <v-spacer></v-spacer>
+                  <v-card-title class="white--text pl-5 pt-5">
+                    <v-layout align-center>
+                      <strong class="display-4 font-weight-regular mr-4">8</strong>
+                      <v-layout column justify-end>
+                        <div class="headline font-weight-light">Monday</div>
+                        <div class="text-uppercase font-weight-light">February 2015</div>
+                      </v-layout>
+                    </v-layout>
+                  </v-card-title>
                 </v-layout>
-              </v-container>
             </v-img>
           </v-card>
           <v-card-text class="py-0">

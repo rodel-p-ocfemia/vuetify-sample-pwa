@@ -124,7 +124,7 @@
           <v-flex xs12 md3>
             <!--Clock-In-->
             <v-card>
-              <v-img class="white--text" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+              <v-img class="white--text" height="200px" src="https://cdn.vuetifyjs.com/images/cards/plane.jpg">
                 <v-container fill-height fluid>
                   <v-layout fill-height>
                     <v-flex xs12 align-end flexbox>
