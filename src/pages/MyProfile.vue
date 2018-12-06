@@ -20,7 +20,7 @@
           </v-layout>
         </v-img>
         <v-list two-line>
-          <v-list-tile @click="">
+          <v-list-tile @click="selected(this)">
             <v-list-tile-action>
               <v-icon color="indigo">phone</v-icon>
             </v-list-tile-action>
@@ -32,7 +32,7 @@
               <v-icon>chat</v-icon>
             </v-list-tile-action>
           </v-list-tile>
-          <v-list-tile @click="">
+          <v-list-tile @click="selected(this)">
             <v-list-tile-action></v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title>(323) 555-6789</v-list-tile-title>
@@ -44,7 +44,7 @@
           </v-list-tile>
           <v-divider inset></v-divider>
 
-          <v-list-tile @click="">
+          <v-list-tile @click="selected(this)">
             <v-list-tile-action>
               <v-icon color="indigo">mail</v-icon>
             </v-list-tile-action>
@@ -55,7 +55,7 @@
             </v-list-tile-content>
           </v-list-tile>
 
-          <v-list-tile @click="">
+          <v-list-tile @click="selected(this)">
             <v-list-tile-action></v-list-tile-action>
 
             <v-list-tile-content>
@@ -66,7 +66,7 @@
 
           <v-divider inset></v-divider>
 
-          <v-list-tile @click="">
+          <v-list-tile @click="selected(this)">
             <v-list-tile-action>
               <v-icon color="indigo">location_on</v-icon>
             </v-list-tile-action>
@@ -81,3 +81,15 @@
     </v-flex>
   </v-layout>
 </template>
+<script>
+export default {
+    data: () => ({
+              
+    }),
+    methods: {
+      selected (item) {
+        console.log(item)
+      }
+    }
+  }
+</script>
