@@ -44,10 +44,8 @@
                   <v-spacer></v-spacer>
                   <v-card-title class="white--text pl-5 pt-5">
                     <v-layout align-center>
-                      <strong class="display-4 font-weight-regular mr-4">8</strong>
                       <v-layout column justify-end>
-                        <div class="headline font-weight-light">Monday</div>
-                        <div class="text-uppercase font-weight-light">February 2015</div>
+                        <div class="headline font-weight-light">December 2-8, 2018</div>
                       </v-layout>
                     </v-layout>
                   </v-card-title>

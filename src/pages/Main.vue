@@ -51,11 +51,9 @@
             <v-list-tile-title>My Profile</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile to="/attendance" ripple>
+        <v-list-tile to="/attendance/daily" ripple>
           <v-list-tile-action>
-            <v-badge overlap color="orange">                
-                <v-icon>access_time</v-icon>
-              </v-badge>
+            <v-icon>access_time</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>My Attendance</v-list-tile-title>
@@ -63,9 +61,7 @@
         </v-list-tile>
         <v-list-tile to="/samplesearch" ripple>
           <v-list-tile-action>
-            <v-badge overlap color="orange">                
-                <v-icon>attach_money</v-icon>
-              </v-badge>
+            <v-icon>attach_money</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>My Payslip</v-list-tile-title>
@@ -140,7 +136,7 @@
                 </div>
               </v-card-title>
               <v-card-actions>
-                <v-btn flat color="orange">Time-In</v-btn>
+                <v-btn flat color="primary">Time-In</v-btn>
               </v-card-actions>
             </v-card><br>
             <!--My Team-->

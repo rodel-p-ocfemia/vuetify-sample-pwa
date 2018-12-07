@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/pages/HelloWorld'
 import Dashboard from '@/pages/Dashboard'
 import Attendance from '@/pages/Attendance'
+import AttendanceWeekly from '@/pages/AttendanceWeekly'
+import AttendanceMonthly from '@/pages/AttendanceMonthly'
 //import Dashboard from '@/components/Clock2'
 //import Dashboard from '@/components/Clock3'
 import Sample1 from '@/pages/Sample1'
@@ -34,9 +36,21 @@ export default new Router({
           beforeEnter: requireAuth
         },
         {
-          path: 'attendance',
+          path: 'attendance/daily',
           name: 'Attendance',
           component: Attendance,
+          beforeEnter: requireAuth
+        },
+        {
+          path: 'attendance/weekly',
+          name: 'AttendanceWeekly',
+          component: AttendanceWeekly,
+          beforeEnter: requireAuth
+        },
+        {
+          path: 'attendance/monthly',
+          name: 'AttendanceMonthly',
+          component: AttendanceMonthly,
           beforeEnter: requireAuth
         },
         {
