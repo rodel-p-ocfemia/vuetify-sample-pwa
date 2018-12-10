@@ -13,13 +13,13 @@
                     </v-btn>
                     <v-spacer></v-spacer>
                     <v-card-title class="white--text">                     
-                      <v-menu bottom right transition="slide-x-reverse-transition">
+                      <v-menu bottom left transition="slide-x-reverse-transition">
                         <v-btn slot="activator" dark icon>
                           <v-icon>event</v-icon>
                         </v-btn>
                         <v-list dense class="pt-0">
                           <v-list-tile-content>
-                            <v-date-picker class="primary" v-model="date" landscape reactive></v-date-picker>
+                            <v-date-picker class="primary" v-model="date" landscape reactive type="month"></v-date-picker>
                           </v-list-tile-content>
                         </v-list>
                       </v-menu>

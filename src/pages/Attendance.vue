@@ -1,5 +1,5 @@
 <template>
-<v-card class="mx-auto" max-width="100%">
+<v-card class="mx-auto">
           <v-card dark>
             <v-img style="height:250px;" src="https://cdn.vuetifyjs.com/images/cards/forest.jpg"
               gradient="to top, rgba(0,0,0,.44), rgba(0,0,0,.44)" >
@@ -13,7 +13,7 @@
                     </v-btn>
                     <v-spacer></v-spacer>
                     <v-card-title class="white--text">                     
-                      <v-menu bottom right transition="slide-x-reverse-transition">
+                      <v-menu bottom left transition="slide-x-reverse-transition">
                         <v-btn slot="activator" dark icon>
                           <v-icon>event</v-icon>
                         </v-btn>
